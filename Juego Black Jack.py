@@ -70,83 +70,145 @@ def puntosMano(valores, puntos):
     return puntos
 
 def esBlackJack(puntos, mano):
-    jotas = 0
-    ases = 0
-    for x in mano:
-        if x [0] == "J":
-            jotas += 1
-        elif x [0] == "A":
-            ases += 1
-    if puntos == 21:
+    """Defino una función que evalúa el puntaje para saber si es Black Jack."""
+    blackJack = 0
+    if puntos == 21 and len(mano) == 2:
         blackJack = 1
-        if blackJack == ases == jotas == 1:
-            blackJackNatural = 1
-            blackJack = 0            
-    return blackJack, blackJackNatural       
-# Cargo mis condiciones iniciales.
+        return blackJack 
 
-baraja = barajaNueva(1)
+def nuevaPartida(k):
+    """Defino una función para iniciar una nueva partida.
+    
+    k = 0 es el parámetro elegido para llamar la función."""
+    while k == 0: 
+        partida = int(input(f"Ingrese 1 para jugar otra vez o 2 para salir: "))
+        if partida == 1:
+            k = 1
+        elif partida == 2:
+            k = 1
+        else:
+            print(f"El valor {partida} ingresado no es válido.")
+    return partida        
 
-# Obtengo la mano del crupier.
-manoCrupier = []
-valoresCrupier = []
-manoCrupier = []
-puntosCrupier = 0
+# Cargo mis condiciones iniciales y doy condiciones para una nueva partida.
+partida = 1
+while partida == 1:
+    k = 0
+    partida = 0
+    baraja = barajaNueva(1)
 
-repartir(baraja, manoCrupier, valoresCrupier)
-repartir(baraja, manoCrupier, valoresCrupier)
-i = 0
-while i == 0:
-    print(f"La mano del crupier es: {manoCrupier}")
-    puntosCrupier = puntosMano(valoresCrupier , puntosCrupier)
-    if puntosCrupier == 21:
-        i = 1
-    """Decido qué valor toma el As del crupier en base a su puntaje.
-   
-        El As del crupier vale 1 sólo cuando se pasa de 21."""
-    for j in range(len(valoresCrupier)):
-        if valoresCrupier[j] == 1:
-            puntosCrupier += 10
-            if puntosCrupier > 21:
-                puntosCrupier -= 10
-    """El crupier está obligado a tomar carta si su puntaje <= 16 y a detenerse si su puntaje >= 17."""
-    if puntosCrupier >= 17:
-        i = 1
-    else:
-        puntosCrupier = 0
-        repartir(baraja, manoCrupier, valoresCrupier)
-         
-#blackJackCrupier = esBlackJack(puntosCrupier, manoCrupier)
-print(f"Los puntos del crupier son: {(puntosCrupier)}")
+    # Obtengo la mano del crupier.
+    manoCrupier = []
+    valoresCrupier = []
+    manoCrupier = []
+    puntosCrupier = 0
 
+    repartir(baraja, manoCrupier, valoresCrupier)
+    repartir(baraja, manoCrupier, valoresCrupier)
+    print(f"La mano del crupier es:")
+    i = 0
+    while i == 0:
+        for x in manoCrupier:
+            print( x, end=" ")
+        print()        
+        puntosCrupier = puntosMano(valoresCrupier , puntosCrupier)
+        if puntosCrupier == 21:
+            i = 1
+        """Decido qué valor toma el As del crupier en base a su puntaje.
+    
+            El As del crupier vale 1 sólo cuando se pasa de 21."""
+        for j in range(len(valoresCrupier)):
+            if valoresCrupier[j] == 1:
+                puntosCrupier += 10
+                if puntosCrupier > 21:
+                    puntosCrupier -= 10
+        """El crupier está obligado a tomar carta si su puntaje <= 16 y a detenerse si su puntaje >= 17."""
+        if puntosCrupier >= 17:
+            i = 1
+        else:
+            puntosCrupier = 0
+            repartir(baraja, manoCrupier, valoresCrupier)
 
+    blackJackCrupier = esBlackJack(puntosCrupier, manoCrupier)
+    print(f"Los puntos del crupier son: {(puntosCrupier)}\n")
+    if puntosCrupier > 21:
+        print(F"\n GANASTE!\n El crupier se pasó de 21\n")
+        partida = nuevaPartida(k)   
+    if  partida == 1:
+        continue
+    elif partida == 2:
+        break
 
-# Obtengo la mano del jugador.
-cartasJugador = []
-valoresJugador = []
-manoJugador = []
-puntosJugador = 0
-repartir(baraja, manoJugador, valoresJugador)
-repartir(baraja, manoJugador, valoresJugador)
-print(f"La mano del jugador es: {manoJugador}")
-j = 0
-while j == 0:
-    for i in range(len(valoresJugador)): 
-        if valoresJugador [i] == 1:   
-            valoresJugador[i] = int(input(f"Elija qué valor le da al As. Las opciones son 1 y 11: "))
-    print(manoJugador)
-    print(f"Los puntos del jugador son: {puntosMano(valoresJugador , puntosJugador)}")
-    z = 0
-    while z == 0:
-        decision = int(input(f"Ingrese 1 para detenerse, 2 para pedir otra carta: "))
-        if decision == 1:
-            j = 1
-            z = 1
-        elif decision == 2:
-            repartir(baraja, manoJugador, valoresJugador)
-            z = 1
-
+    # Obtengo la mano del jugador.
+    cartasJugador = []
+    valoresJugador = []
+    manoJugador = []
+    puntosJugador = 0
+    repartir(baraja, manoJugador, valoresJugador)
+    repartir(baraja, manoJugador, valoresJugador)
+    print(f"La mano del jugador es: ")
+    j = 0
+    while j == 0:
+        for x in manoJugador:
+            print(x, end = " ")
+        print()
+        for i in range(len(valoresJugador)): 
+            if valoresJugador [i] == 1:   
+                valoresJugador[i] = int(input(f"Elija qué valor le da al As. Las opciones son 1 y 11: "))
         
+        puntosJugador = (puntosMano(valoresJugador , puntosJugador))
+        print(f"Los puntos del jugador son: {puntosJugador}\n")
+        z = 0
+        while z == 0:
+            decision = int(input(f"Ingrese 1 para pedir otra carta, 2 para detenerse: "))
+            if decision == 2:
+                j = 1
+                z = 1
+            elif decision == 1:
+                puntosJugador = 0
+                repartir(baraja, manoJugador, valoresJugador)
+                z = 1
+            else:
+                print("El valor ingresado no es válido.")    
 
+    blackJackJugador = esBlackJack(puntosJugador, manoJugador)
+    if puntosJugador > 21:
+        print(F"\n PERDISTE!\n  Te pasaste de 21\n")
+        partida = nuevaPartida(k)
+    if  partida == 1:
+        continue
+    elif partida == 2:
+        break
+    
+    # Comparamos resultados si ninguno de los dos se pasó de 21.
 
-   
+    if puntosJugador == puntosCrupier and blackJackCrupier == blackJackJugador == 1:
+        print(f"\n El jugador y el crupier EMPATAN!\n Ambos tienen BALCK JACK!")
+        partida = nuevaPartida(k)
+    if  partida == 1:
+        continue
+    elif partida == 2:
+        break
+    elif blackJackCrupier == 0 and blackJackJugador == 0:
+        if puntosCrupier == puntosJugador:
+            print(f"\n EMPATAN!\n Ambos tienen {puntosCrupier} puntos.")
+            partida = nuevaPartida(k)
+        elif blackJackCrupier == 1 and blackJackJugador == 0:
+            print(f"\n El crupier tiene \n BLACK JACK!\n PERDISTE!")
+            partida = nuevaPartida(k)
+        elif blackJackJugador == 1 and blackJackCrupier == 0:
+            print(f"\n El jugador tiene \n BLACK JACK!\n GANASTE!")
+            partida = nuevaPartida(k)
+        elif puntosJugador > puntosCrupier:
+            print(f"\n GANASTE!\n")
+            partida = nuevaPartida(k)
+        elif puntosCrupier > puntosJugador:
+            print(f"\n El crupier gana con {puntosCrupier} puntos.\n PERDISTE!")
+            partida = nuevaPartida(k)
+        else:
+            print("Ké")
+
+    if  partida == 1:
+        continue
+    elif partida == 2:
+        break        
