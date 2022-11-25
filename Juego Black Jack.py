@@ -36,7 +36,7 @@ def barajaNueva(numero):
 def repartir(baraja , mano, valor):
     """ Defino una función para repartir una carta al azar.
     
-    Me devuelve una lista con la baraja actualizada, la carta y el valor numérico de la carta. 
+    Me devuelve una lista con la baraja actualizada, la carta, el valor numérico de la carta, la cantidad de Jotas y de Ases de mi mano. 
     """
     # Selecciono una carta al azar.
     palo = random.choice(baraja)
@@ -69,6 +69,20 @@ def puntosMano(valores, puntos):
         puntos += x    
     return puntos
 
+def esBlackJack(puntos, mano):
+    jotas = 0
+    ases = 0
+    for x in mano:
+        if x [0] == "J":
+            jotas += 1
+        elif x [0] == "A":
+            ases += 1
+    if puntos == 21:
+        blackJack = 1
+        if blackJack == ases == jotas == 1:
+            blackJackNatural = 1
+            blackJack = 0            
+    return blackJack, blackJackNatural       
 # Cargo mis condiciones iniciales.
 
 baraja = barajaNueva(1)
@@ -78,6 +92,7 @@ manoCrupier = []
 valoresCrupier = []
 manoCrupier = []
 puntosCrupier = 0
+
 repartir(baraja, manoCrupier, valoresCrupier)
 repartir(baraja, manoCrupier, valoresCrupier)
 i = 0
@@ -86,24 +101,25 @@ while i == 0:
     puntosCrupier = puntosMano(valoresCrupier , puntosCrupier)
     if puntosCrupier == 21:
         i = 1
-    elif puntosCrupier > 21:
-        for j in range(len(valoresCrupier)):
-            if valoresCrupier [j] == 1:
+    """Decido qué valor toma el As del crupier en base a su puntaje.
+   
+        El As del crupier vale 1 sólo cuando se pasa de 21."""
+    for j in range(len(valoresCrupier)):
+        if valoresCrupier[j] == 1:
+            puntosCrupier += 10
+            if puntosCrupier > 21:
                 puntosCrupier -= 10
-        if 17<= puntosCrupier:
-            i = 1        
-    elif puntosCrupier < 21:
-        for j in range(len(valoresCrupier)):
-            if valoresCrupier [j] == 1:
-                puntosCrupier += 10
-        if 17<= puntosCrupier:
-            i = 1           
-        elif puntosCrupier <= 16 :
-            puntosCrupier = 0
-            repartir(baraja, manoCrupier, valoresCrupier)
-    
-#print(valoresCrupier)
+    """El crupier está obligado a tomar carta si su puntaje <= 16 y a detenerse si su puntaje >= 17."""
+    if puntosCrupier >= 17:
+        i = 1
+    else:
+        puntosCrupier = 0
+        repartir(baraja, manoCrupier, valoresCrupier)
+         
+#blackJackCrupier = esBlackJack(puntosCrupier, manoCrupier)
 print(f"Los puntos del crupier son: {(puntosCrupier)}")
+
+
 
 # Obtengo la mano del jugador.
 cartasJugador = []
