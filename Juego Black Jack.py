@@ -1,5 +1,4 @@
 # Brusadin Leonardo Andrés.
-# Legajo 15535.
 
 # Para nuestro juego de Black Jack necesitamos importar el módulo random de Python.
 import random
@@ -67,19 +66,46 @@ def valorCarta(carta):
 def puntosMano(valores, puntos):
     """Defino una función que calcule los puntos de mi mano."""
     for x in valores:
-        puntos += x
-        if puntos == 21:
-            continue
-        if x == 1:
-            puntos -= x    
-            x = int(input(f"Elija qué valor le da al As. Las opciones son 1 y 11: "))
-            puntos += x
+        puntos += x    
     return puntos
 
 # Cargo mis condiciones iniciales.
 
 baraja = barajaNueva(1)
 
+# Obtengo la mano del crupier.
+manoCrupier = []
+valoresCrupier = []
+manoCrupier = []
+puntosCrupier = 0
+repartir(baraja, manoCrupier, valoresCrupier)
+repartir(baraja, manoCrupier, valoresCrupier)
+i = 0
+while i == 0:
+    print(f"La mano del crupier es: {manoCrupier}")
+    puntosCrupier = puntosMano(valoresCrupier , puntosCrupier)
+    if puntosCrupier == 21:
+        i = 1
+    elif puntosCrupier > 21:
+        for j in range(len(valoresCrupier)):
+            if valoresCrupier [j] == 1:
+                puntosCrupier -= 10
+        if 17<= puntosCrupier:
+            i = 1        
+    elif puntosCrupier < 21:
+        for j in range(len(valoresCrupier)):
+            if valoresCrupier [j] == 1:
+                puntosCrupier += 10
+        if 17<= puntosCrupier:
+            i = 1           
+        elif puntosCrupier <= 16 :
+            puntosCrupier = 0
+            repartir(baraja, manoCrupier, valoresCrupier)
+    
+#print(valoresCrupier)
+print(f"Los puntos del crupier son: {(puntosCrupier)}")
+
+# Obtengo la mano del jugador.
 cartasJugador = []
 valoresJugador = []
 manoJugador = []
@@ -87,16 +113,24 @@ puntosJugador = 0
 repartir(baraja, manoJugador, valoresJugador)
 repartir(baraja, manoJugador, valoresJugador)
 print(f"La mano del jugador es: {manoJugador}")
-#print(valoresJugador)
-print(f"Los puntos del jugador son: {puntosMano(valoresJugador , puntosJugador)}")
+j = 0
+while j == 0:
+    for i in range(len(valoresJugador)): 
+        if valoresJugador [i] == 1:   
+            valoresJugador[i] = int(input(f"Elija qué valor le da al As. Las opciones son 1 y 11: "))
+    print(manoJugador)
+    print(f"Los puntos del jugador son: {puntosMano(valoresJugador , puntosJugador)}")
+    z = 0
+    while z == 0:
+        decision = int(input(f"Ingrese 1 para detenerse, 2 para pedir otra carta: "))
+        if decision == 1:
+            j = 1
+            z = 1
+        elif decision == 2:
+            repartir(baraja, manoJugador, valoresJugador)
+            z = 1
 
-manoCrupier = []
-valoresCrupier = []
-manoCrupier = []
-puntosCrupier = 0
-repartir(baraja, manoCrupier, valoresCrupier)
-repartir(baraja, manoCrupier, valoresCrupier)
-print(f"La mano del crupier es: {manoCrupier}")
-#print(valoresCrupier)
-print(f"Los puntos del crupier son: {puntosMano(valoresCrupier , puntosCrupier)}")
+        
+
+
    
