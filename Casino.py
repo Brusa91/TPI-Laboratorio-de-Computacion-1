@@ -40,53 +40,53 @@ while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Black Ja
  
    if desicion==("Ruleta") and desicion!=("Salir"):
      print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-     print("Usted elijio el juego de la ruleta europea")
+     print("Usted eligió el juego de la ruleta europea")
      time.sleep(1.5) 
      print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-     print("Elija a que quiere apostar las opciones son:")
+     print("Elija a que quiere apostar. Las opciones son:")
      print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-     print("1) Numeros a eleccion")
+     print("1) Números a elección")
      print("2) Par o Impar")
      print("3) Colores: Rojo o Negro")
      print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-     print("Escriba 1 2 o 3 dependiendo lo que quiera jugar")
+     print("Escriba 1, 2 o 3 dependiendo lo que quiera jugar")
      #aca se pone la variable dependiendo el juego a que se quiera jugar
      desicion2=int(input())
      
      while desicion2<=3:  #############################
       if desicion2==1:                            #RULETA OPCION 1
          print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-         cantidadnuma=int(input("cual es la cantidad de numeros que desea seleccionar recuerde que es del 0 al 36\n"))
+         cantidadnuma=int(input("¿Cuál es la cantidad de números que desea seleccionar? Recuerde que es del 0 al 36\n"))
          print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
          numerosnuma=[0]
          numerosnuma=numerosnuma*(cantidadnuma)
          print(numerosnuma)
          for i in range(len(numerosnuma)):
-             print("ingrese el numero que desea jugar")
+             print("Ingrese el número que desea jugar")
              numeropaso=int(input())
              numerosnuma[i]=numeropaso
 
-         print("sus numeros seleccionados fueron",numerosnuma)
+         print("Sus números seleccionados fueron",numerosnuma)
          randomruleta=random.choice(todos)
          print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-         print("El numero que salio en la ruleta fue el ",randomruleta)
+         print("El número que salió en la ruleta fue el ",randomruleta)
          
          if randomruleta in numerosnuma:
-            print("FELICIDADES GANO")
+            print("FELICIDADES, USTED GANÓ")
          else:
-            print("USTED PERDIO")
+            print("USTED PERDIÓ")
          time.sleep(4)   
          print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-         print("Elija a que quiere apostar las opciones son:")
+         print("Elija a que quiere apostar. Las opciones son:")
          print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-         print("1) Numeros a eleccion")
+         print("1) Números a elección")
          print("2) Par o Impar")
          print("3) Colores: Rojo o Negro")
          print("Escriba 4 si desea salir")  
          desicion2=int(input())     
          print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
       elif desicion2==2:                                ######## Pares o impares esta en un elif
-         print("Usted elijio la opcion de pares o impares")
+         print("Usted eligió la opción de pares o impares")
          time.sleep(1)
          print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
          print("ELIJA A LO QUE QUIERE APOSTAR:")
@@ -95,40 +95,40 @@ while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Black Ja
          print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
          desicion4=int(input())
          if desicion4==1:   
-             print("USTED APOSTO A LOS PARES")                                 ### ELIJIO PARES
+             print("USTED APOSTÓ A LOS PARES")                                 ### ELIJIO PARES
              randomPARES=random.choice(todos)
              if randomPARES in (pares):
-                 print("El numero que salio en la ruleta fue el ",randomPARES)
-                 print("FELICIDADES USTED GANO")
+                 print("El número que salió en la ruleta fue el ",randomPARES)
+                 print("FELICIDADES, USTED GANÓ")
                  time.sleep(1.5)
              else:
                  print("El numero que salio en la ruleta fue el ",randomPARES)
-                 print("USTED PERDIO")
+                 print("USTED PERDIÓ")
                  time.sleep(1.5)
             #### COPIAR LO DEL DESICION 2 Y TODA LA COSA 
          elif desicion4==2: 
-             print("USTED APOSTO A LOS IMPARES")                                 ## ELIJIO IMPARES
+             print("USTED APOSTÓ A LOS IMPARES")                                 ## ELIJIO IMPARES
              randomIMPARES=random.choice(todos)
              if randomIMPARES in (impares):
-                 print("El numero que salio en la ruleta fue el ",randomIMPARES)
-                 print("FELICIDADES USTED GANO")
+                 print("El número que salió en la ruleta fue el ",randomIMPARES)
+                 print("FELICIDADES, USTED GANÓ")
                  time.sleep(1.5)
              else:
-                 print("El numero que salio en la ruleta fue el ",randomIMPARES)
-                 print("USTED PERDIO")
+                 print("El número que salió en la ruleta fue el ",randomIMPARES)
+                 print("USTED PERDIó")
                  time.sleep(1.5)
          
          print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-         print("Elija a que quiere apostar las opciones son:")
+         print("Elija a que quiere apostar. Las opciones son:")
          print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-         print("1) Numeros a eleccion")
+         print("1) Números a eleccion")
          print("2) Par o Impar")
          print("3) Colores: Rojo o Negro")
          print("Escriba 4 si desea salir")  
          desicion2=int(input())     
          print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━") 
       elif desicion2==3:
-         print("Usted elijio la opcion de Colores rojo o negro")
+         print("Usted eligió la opción de Colores rojo o negro")
          time.sleep(1)
          print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
          print("ELIJA A LO QUE QUIERE APOSTAR:")
@@ -137,33 +137,33 @@ while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Black Ja
          print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
          desicioncolores=int(input())
          if  desicioncolores==1:   
-             print("USTED APOSTO AL COLOR ROJO")                                 ### ELIJIO ROJO
+             print("USTED APOSTÓ AL COLOR ROJO")                                 ### ELIJIO ROJO
              randomROJO=random.choice(todos)
              if randomROJO in (rojos):
-                 print("El numero que salio en la ruleta fue el ",randomROJO,"ROJO")
-                 print("FELICIDADES USTED GANO")
+                 print("El número que salió en la ruleta fue el ",randomROJO,"ROJO")
+                 print("FELICIDADES, USTED GANÓ")
                  time.sleep(1.5)
              else:
-                 print("El numero que salio en la ruleta fue el ",randomROJO,"NEGRO")
-                 print("USTED PERDIO")
+                 print("El número que salió en la ruleta fue el ",randomROJO,"NEGRO")
+                 print("USTED PERDIÓ")
                  time.sleep(1.5)
          elif  desicioncolores==2: 
-             print("USTED APOSTO AL COLOR NEGRO")                                #ELIJIO NEGRO
+             print("USTED APOSTÓ AL COLOR NEGRO")                                #ELIJIO NEGRO
              randomNEGRO=random.choice(todos)
              if randomNEGRO in (negros):
-                 print("El numero que salio en la ruleta fue el ",randomNEGRO)
-                 print("FELICIDADES USTED GANO")
+                 print("El número que salió en la ruleta fue el ",randomNEGRO)
+                 print("FELICIDADES, USTED GANÓ")
                  time.sleep(1.5)
              else:
-                 print("El numero que salio en la ruleta fue el ",randomNEGRO)
-                 print("USTED PERDIO")
+                 print("El número que salió en la ruleta fue el ",randomNEGRO)
+                 print("USTED PERDIÓ")
                  time.sleep(1.5)   
 
          time.sleep(2)   
          print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
          print("Elija a que quiere apostar las opciones son:")
          print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-         print("1) Numeros a eleccion")
+         print("1) Números a elección")
          print("2) Par o Impar")
          print("3) Colores: Rojo o Negro")
          print("Escriba 4 si desea salir")  
@@ -185,7 +185,7 @@ while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Black Ja
      desicion=desicion.title()
    elif desicion==("Tragamonedas") and desicion!=("Salir"):
      print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-     print("Usted elijio el juego del Tragamonedas")
+     print("Usted eligió el juego del Tragamonedas")
      print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
      print("Precione 1 para realizar una tirada")
      
@@ -212,12 +212,12 @@ while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Black Ja
      print("") 
      
      if array2[0]==array2[1] and array2==[2] and desiciontirada==1:
-        print("FELICIDADES USTED GANO")
+        print("FELICIDADES, USTED GANÓ")
      elif desiciontirada!=1:
         print("")  
      else:
         print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-        print("USTED PERDIO")
+        print("USTED PERDIÓ")
         print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
         
      
