@@ -28,7 +28,7 @@ print("Ruleta")
 print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")  
 print("Tragamonedas")   
 print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-print("Black Jack")
+print("Blackjack")
 print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
 print("Salir si desea retirarse.")
 print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
@@ -36,7 +36,7 @@ print("━━━━━━━━━━━━━━━━━━━━━━━━�
 desicion=str(input())
 desicion=desicion.title()
 
-while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Black Jack") and desicion!=("Salir"):
+while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Blackjack") and desicion!=("Salir"):
  
    if desicion==("Ruleta") and desicion!=("Salir"):
      print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
@@ -177,7 +177,7 @@ while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Black Ja
      print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")  
      print("Tragamonedas")   
      print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-     print("Black Jack")
+     print("Blackjack")
      print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
      print("Salir si desea retirarse.")
      print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")    
@@ -211,7 +211,8 @@ while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Black Ja
          print (array3[i],end=" ") 
      print("") 
      
-     if array2[0]==array2[1] and array2==[2] and desiciontirada==1:
+     #if array2[0]==array2[1] and array2==[2] and desiciontirada==1:
+     if array2[0]==array2[1] and array2[2]==array2[1] and array2[3]==array2[1]:
         print("FELICIDADES, USTED GANÓ")
      elif desiciontirada!=1:
         print("")  
@@ -232,20 +233,20 @@ while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Black Ja
      print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")  
      print("Tragamonedas")   
      print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-     print("Black Jack")
+     print("Blackjack")
      print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
      print("Salir si desea retirarse.")
      print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")    
      desicion=str(input())
      desicion=desicion.title()
      print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-     print("Usted eligió el Black Jack")
+     print("Usted eligió el Blackjack")
      time.sleep(1.5) 
      print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-     print(f"BLACK JACK")
+     print(f"BLACKJACK")
      print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
 
-   elif desicion == "Black Jack" and desicion != "Salir":
+   elif desicion == "Blackjack" and desicion != "Salir":
     # Para nuestro juego de Black Jack necesitamos importar el módulo random de Python.
     import random
 
@@ -436,14 +437,14 @@ while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Black Ja
                 break
 
         elif blackJackCrupier == 1 and blackJackJugador != 1:
-            print(f"\n El crupier tiene \n BLACK JACK!\n PERDISTE!")
+            print(f"\n El crupier tiene \n BLACKJACK!\n PERDISTE!")
             partida = nuevaPartida(otraPartida)
             if  partida == 1:
                 continue
             elif partida == 2:
                 break
         elif blackJackJugador == 1 and blackJackCrupier != 1:
-            print(f"\n El jugador tiene \n BLACK JACK!\n GANASTE!")
+            print(f"\n El jugador tiene \n BLACKJACK!\n GANASTE!")
             partida = nuevaPartida(otraPartida)
             if  partida == 1:
                 continue
@@ -462,7 +463,7 @@ while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Black Ja
                 print(f"\n El crupier gana con {puntosCrupier} puntos.\n PERDISTE!")
                 partida = nuevaPartida(otraPartida)
             else:
-                print("Ké")
+                print("ERROR")
 
             if  partida == 1:
                 continue
@@ -476,7 +477,7 @@ while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Black Ja
     print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")  
     print("Tragamonedas")   
     print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-    print("Black Jack")
+    print("Blackjack")
     print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
     print("Salir si desea retirarse.")
     print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")    
