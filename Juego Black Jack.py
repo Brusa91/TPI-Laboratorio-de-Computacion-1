@@ -74,7 +74,7 @@ def esBlackJack(puntos, mano):
     blackJack = 0
     if puntos == 21 and len(mano) == 2:
         blackJack = 1
-        return blackJack 
+        return int(blackJack) 
 
 def nuevaPartida(k):
     """Defino una función para iniciar una nueva partida.
@@ -93,7 +93,7 @@ def nuevaPartida(k):
 # Cargo mis condiciones iniciales y doy condiciones para una nueva partida.
 partida = 1
 while partida == 1:
-    k = 0
+    otraPartida = 0
     partida = 0
     baraja = barajaNueva(1)
 
@@ -133,11 +133,13 @@ while partida == 1:
     print(f"Los puntos del crupier son: {(puntosCrupier)}\n")
     if puntosCrupier > 21:
         print(F"\n GANASTE!\n El crupier se pasó de 21\n")
-        partida = nuevaPartida(k)   
-    if  partida == 1:
-        continue
-    elif partida == 2:
-        break
+        partida = nuevaPartida(otraPartida)
+        if  partida == 1:
+            continue
+        elif partida == 2:
+            break
+   
+    
 
     # Obtengo la mano del jugador.
     cartasJugador = []
@@ -162,8 +164,8 @@ while partida == 1:
         while z == 0:
             decision = int(input(f"Ingrese 1 para pedir otra carta, 2 para detenerse: "))
             if decision == 2:
-                j = 1
                 z = 1
+                j = 1
             elif decision == 1:
                 puntosJugador = 0
                 repartir(baraja, manoJugador, valoresJugador)
@@ -174,41 +176,54 @@ while partida == 1:
     blackJackJugador = esBlackJack(puntosJugador, manoJugador)
     if puntosJugador > 21:
         print(F"\n PERDISTE!\n  Te pasaste de 21\n")
-        partida = nuevaPartida(k)
-    if  partida == 1:
-        continue
-    elif partida == 2:
-        break
+        partida = nuevaPartida(otraPartida)
+        if  partida == 1:
+            continue
+        elif partida == 2:
+            break
+   
     
     # Comparamos resultados si ninguno de los dos se pasó de 21.
 
     if puntosJugador == puntosCrupier and blackJackCrupier == blackJackJugador == 1:
-        print(f"\n El jugador y el crupier EMPATAN!\n Ambos tienen BALCK JACK!")
-        partida = nuevaPartida(k)
-    if  partida == 1:
-        continue
-    elif partida == 2:
-        break
-    elif blackJackCrupier == 0 and blackJackJugador == 0:
+        print(f"\n El jugador y el crupier EMPATAN!\n Ambos tienen BLACK JACK!")
+        partida = nuevaPartida(otraPartida)
+        if  partida == 1:
+            continue
+        elif partida == 2:
+            break
+
+    elif blackJackCrupier == 1 and blackJackJugador != 1:
+        print(f"\n El crupier tiene \n BLACK JACK!\n PERDISTE!")
+        partida = nuevaPartida(otraPartida)
+        if  partida == 1:
+            continue
+        elif partida == 2:
+            break
+
+    elif blackJackJugador == 1 and blackJackCrupier != 1:
+        print(f"\n El jugador tiene \n BLACK JACK!\n GANASTE!")
+        partida = nuevaPartida(otraPartida)
+        if  partida == 1:
+            continue
+        elif partida == 2:
+            break    
+    
+    elif blackJackCrupier == blackJackJugador != 1:
         if puntosCrupier == puntosJugador:
             print(f"\n EMPATAN!\n Ambos tienen {puntosCrupier} puntos.")
-            partida = nuevaPartida(k)
-        elif blackJackCrupier == 1 and blackJackJugador == 0:
-            print(f"\n El crupier tiene \n BLACK JACK!\n PERDISTE!")
-            partida = nuevaPartida(k)
-        elif blackJackJugador == 1 and blackJackCrupier == 0:
-            print(f"\n El jugador tiene \n BLACK JACK!\n GANASTE!")
-            partida = nuevaPartida(k)
+            partida = nuevaPartida(otraPartida)
+
         elif puntosJugador > puntosCrupier:
             print(f"\n GANASTE!\n")
-            partida = nuevaPartida(k)
+            partida = nuevaPartida(otraPartida)
         elif puntosCrupier > puntosJugador:
             print(f"\n El crupier gana con {puntosCrupier} puntos.\n PERDISTE!")
-            partida = nuevaPartida(k)
+            partida = nuevaPartida(otraPartida)
         else:
             print("Ké")
 
-    if  partida == 1:
-        continue
-    elif partida == 2:
-        break        
+        if  partida == 1:
+            continue
+        elif partida == 2:
+                break        
