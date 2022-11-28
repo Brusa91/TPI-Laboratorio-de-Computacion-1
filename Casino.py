@@ -243,11 +243,11 @@ while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Blackjac
      print("Usted eligió el Blackjack")
      time.sleep(1.5) 
      print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-     print(f"BLACKJACK")
+     print("BLACKJACK")
      print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
 
    elif desicion == "Blackjack" and desicion != "Salir":
-    # Para nuestro juego de Black Jack necesitamos importar el módulo random de Python.
+    # Para nuestro juego de Blackjack necesitamos importar el módulo random de Python.
     import random
 
     def barajaNueva(numero):
@@ -299,7 +299,7 @@ while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Blackjac
         """Defino una función para obtener el valor numérico de mi string carta."""
         valor = 0
         if carta[0] == "A":
-            valor = 1
+            valor = 11
         elif carta [0] == "J" or carta[0] == "Q" or carta[0] == "K":
             valor = 10
         else:
@@ -365,9 +365,7 @@ while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Blackjac
     
                 El As del crupier vale 1 sólo cuando se pasa de 21."""
             for j in range(len(valoresCrupier)):
-                if valoresCrupier[j] == 1:
-                    puntosCrupier += 10
-                if puntosCrupier > 21:
+                if valoresCrupier[j] == 11 and puntosCrupier > 21:
                     puntosCrupier -= 10
             """El crupier está obligado a tomar carta si su puntaje <= 16 y a detenerse si su puntaje >= 17."""
             if puntosCrupier >= 17:
@@ -477,7 +475,7 @@ while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Blackjac
     print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")  
     print("Tragamonedas")   
     print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-    print("Blackjack")
+    print("Blackack")
     print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
     print("Salir si desea retirarse.")
     print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")    
