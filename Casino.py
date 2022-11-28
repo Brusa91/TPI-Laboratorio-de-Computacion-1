@@ -239,14 +239,16 @@ while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Blackjac
      print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")    
      desicion=str(input())
      desicion=desicion.title()
-     print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-     print("Usted eligió el Blackjack")
-     time.sleep(1.5) 
-     print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-     print("BLACKJACK")
-     print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+    
 
    elif desicion == "Blackjack" and desicion != "Salir":
+    print(f"\n")
+    print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+    print("Usted eligió el Blackjack")
+    time.sleep(1.5) 
+    print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+    print("BLACKJACK")
+    print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
     # Para nuestro juego de Blackjack necesitamos importar el módulo random de Python.
     import random
 
@@ -345,7 +347,6 @@ while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Blackjac
         baraja = barajaNueva(1)
 
         # Obtengo la mano del crupier.
-        manoCrupier = []
         valoresCrupier = []
         manoCrupier = []
         puntosCrupier = 0
@@ -353,14 +354,14 @@ while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Blackjac
         repartir(baraja, manoCrupier, valoresCrupier)
         repartir(baraja, manoCrupier, valoresCrupier)
         print(f"La mano del crupier es:")
-        i = 0
-        while i == 0:
+        juegoCrupier = 0
+        while juegoCrupier == 0:
             for x in manoCrupier:
                 print( x, end=" ")
             print()        
             puntosCrupier = puntosMano(valoresCrupier , puntosCrupier)
             if puntosCrupier == 21:
-                i = 1
+                juegoCrupier = 1
             """Decido qué valor toma el As del crupier en base a su puntaje.
     
                 El As del crupier vale 1 sólo cuando se pasa de 21."""
@@ -369,7 +370,7 @@ while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Blackjac
                     puntosCrupier -= 10
             """El crupier está obligado a tomar carta si su puntaje <= 16 y a detenerse si su puntaje >= 17."""
             if puntosCrupier >= 17:
-                i = 1
+                juegoCrupier = 1
             else:
                 puntosCrupier = 0
                 repartir(baraja, manoCrupier, valoresCrupier)    
@@ -378,7 +379,7 @@ while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Blackjac
         blackJackCrupier = esBlackJack(puntosCrupier, manoCrupier)
         print(f"Los puntos del crupier son: {(puntosCrupier)}\n")
         if puntosCrupier > 21:
-            print(F"\n GANASTE!\n El crupier se pasó de 21\n")
+            print(f"\n GANASTE!\n El crupier se pasó de 21\n")
             partida = nuevaPartida(otraPartida)
             if  partida == 1:
                 continue
@@ -393,8 +394,8 @@ while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Blackjac
         repartir(baraja, manoJugador, valoresJugador)
         repartir(baraja, manoJugador, valoresJugador)
         print(f"La mano del jugador es: ")
-        j = 0
-        while j == 0:
+        juegoJugador = 0
+        while juegoJugador == 0:
             for x in manoJugador:
                 print(x, end = " ")
             print()
@@ -409,7 +410,7 @@ while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Blackjac
                 decision = int(input(f"Ingrese 1 para pedir otra carta, 2 para detenerse: "))
                 if decision == 2:
                     z = 1
-                    j = 1
+                    juegoJugador = 1
                 elif decision == 1:
                     puntosJugador = 0
                     repartir(baraja, manoJugador, valoresJugador)
