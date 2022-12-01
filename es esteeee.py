@@ -33,9 +33,24 @@ print("━━━━━━━━━━━━━━━━━━━━━━━━�
 
 desicion=str(input())
 desicion=desicion.title()
+while desicion!=("Ruleta") and desicion!=("Tragamonedas") and desicion!=("Black Jack") :
+ print("Escriba que juego desea jugar\n")
+ print("LAS OPCIONES SON")
+ print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+ print("Ruleta") 
+ print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")  
+ print("Tragamonedas")   
+ print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+ print("Black Jack")
+ print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+ desicion=str(input())
+ desicion=desicion.title()
 
-while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Black Jack") and desicion!=("salir"):
  
+while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Black Jack") and desicion!=("salir"):
+  
+
+
    if desicion==("Ruleta") and desicion!=("Salir"):
      print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
      print("Usted elijio el juego de la ruleta europea")
@@ -207,15 +222,38 @@ while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Black Ja
          print (array3[i],end=" ") 
      print("") 
      
-     if array2[0]==array2[1] and array2==[2] and desiciontirada==1:
-        print("FELICIDADES USTED GANO")
+
+
+     if array1[0]==array1[1] and array1[2]==array1[1] and array1[3]==array1[1] and desiciontirada==1:
+        print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+        print("FELICIDADES USTED GANO EN LA FILA UNO")
+        print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
      elif desiciontirada!=1:
         print("")  
      else:
         print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-        print("USTED PERDIO")
+        print("USTED PERDIO EN LA FILA UNO")
         print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+     if array2[0]==array2[1] and array2[2]==array2[1] and array1[3]==array1[1] and desiciontirada==1:
+        print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+        print("FELICIDADES USTED GANO EN LA FILA DOS")
+        print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+     elif desiciontirada!=1:
+        print("")  
+     else:
         
+        print("USTED PERDIO EN LA FILA DOS")
+        print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+     if array3[0]==array3[1] and array3[2]==array3[1] and array3[3]==array3[1] and desiciontirada==1:
+        print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+        print("FELICIDADES USTED GANO EN LA FILA TRES")
+        print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+     elif desiciontirada!=1:
+        print("")  
+     else:
+        
+        print("USTED PERDIO EN LA FILA TRES")
+        print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")    
      
 
 
