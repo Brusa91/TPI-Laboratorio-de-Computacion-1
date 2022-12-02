@@ -212,6 +212,7 @@ while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Blackjac
      print("") 
      
      #if array2[0]==array2[1] and array2==[2] and desiciontirada==1:
+     """
      if array2[0]==array2[1] and array2[2]==array2[1] and array2[3]==array2[1]:
         print("FELICIDADES, USTED GANÓ")
      elif desiciontirada!=1:
@@ -220,8 +221,37 @@ while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Blackjac
         print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
         print("USTED PERDIÓ")
         print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+    """    
+     if array1[0]==array1[1] and array1[2]==array1[1] and array1[3]==array1[1] and desiciontirada==1:
+        print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+        print("FELICIDADES USTED GANO EN LA FILA UNO")
+        print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+     elif desiciontirada!=1:
+        print("")  
+     else:
+        print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+        print("USTED PERDIO EN LA FILA UNO")
+        print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+     if array2[0]==array2[1] and array2[2]==array2[1] and array1[3]==array1[1] and desiciontirada==1:
+        print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+        print("FELICIDADES USTED GANO EN LA FILA DOS")
+        print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+     elif desiciontirada!=1:
+        print("")  
+     else:
         
-     
+        print("USTED PERDIO EN LA FILA DOS")
+        print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+     if array3[0]==array3[1] and array3[2]==array3[1] and array3[3]==array3[1] and desiciontirada==1:
+        print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+        print("FELICIDADES USTED GANO EN LA FILA TRES")
+        print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+     elif desiciontirada!=1:
+        print("")  
+     else:
+        
+        print("USTED PERDIO EN LA FILA TRES")
+        print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
 
 
      
