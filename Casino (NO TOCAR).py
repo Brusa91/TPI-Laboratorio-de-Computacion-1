@@ -430,7 +430,7 @@ while desicion==("Ruleta") or desicion==("Tragamonedas") or desicion==("Blackjac
                 print(x, end = " ")
             print()
             for i in range(len(valoresJugador)): 
-                if valoresJugador [i] == 1:   
+                if valoresJugador [i] == 11:   
                     valoresJugador[i] = int(input(f"Elija qué valor le da al As. Las opciones son 1 y 11: "))
         
             puntosJugador = (puntosMano(valoresJugador , puntosJugador))
